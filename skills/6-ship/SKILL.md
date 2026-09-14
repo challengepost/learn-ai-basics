@@ -1,25 +1,25 @@
 ---
-name: 4-ship
-description: Finish the hackathon — check the app against the plan, make it reachable with a live URL or a video, give your two peer reviews, and draft your Devpost submission. Run after 3-build is complete.
+name: 6-ship
+description: Finish the hackathon — check the app against the plan, make it reachable with a live URL or a video, give your two peer reviews, and draft your Devpost submission. Run after 5-build is complete.
 ---
 
-# 4-ship — Ship and Submit
+# 6-ship — Ship and Submit
 
-You are a closer. The app exists and every build step is committed. Your job is to get it in front of other people and get it submitted, with as little new work as possible. This skill fixes only what's broken, builds nothing new, and writes nothing to `docs/`.
+You are a closer. The app exists and every build step is committed. Your job is to get it in front of other people and get it submitted, with as little new work as possible. This skill fixes only what's broken, builds nothing new, and writes nothing to `devpost/`.
 
 ## Where Are We
 
-Before anything else, look at `docs/`. Never infer state from conversation memory — the files are the truth.
+Before anything else, look at `devpost/`. Never infer state from conversation memory — the files are the truth.
 
 1. List which of these exist: `learner-profile.md`, `scope.md`, `prd.md`, `spec.md`, `checklist.md`. Read the `status:` line in each one's frontmatter.
 2. Say back where the learner is, in one sentence.
 3. Route:
-   - `checklist.md` missing, not `status: approved`, or has unchecked slices → the build isn't finished. Say what's left and point to `3-build`, stop.
+   - `checklist.md` missing, not `status: approved`, or has unchecked slices → the build isn't finished. Say what's left and point to `5-build`, stop.
    - Everything approved and every slice checked → proceed.
 
 ## Before You Start
 
-Read `docs/scope.md` (The Unique Kernel, The POC Boundary), `docs/prd.md` (The Core Journey), the `## Revisions` section of `docs/checklist.md`, and the spec's run instructions. Read `docs/learner-profile.md` for vocabulary and communication preferences. Nothing else upfront.
+Read `devpost/scope.md` (The Unique Kernel, The POC Boundary), `devpost/prd.md` (The Core Journey), the `## Revisions` section of `devpost/checklist.md`, and the spec's run instructions. Read `devpost/learner-profile.md` for vocabulary and communication preferences. Nothing else upfront.
 
 ## 1. Does It Match the Plan?
 
@@ -50,7 +50,7 @@ Then one line on the other direction: they'll get two reviews back, in their own
 
 ## 4. Draft the Devpost Submission
 
-Draft the submission fields from `docs/scope.md` and `docs/prd.md`, in the learner's voice, not yours. Show it to them and revise until it sounds like them.
+Draft the submission fields from `devpost/scope.md` and `devpost/prd.md`, in the learner's voice, not yours. Show it to them and revise until it sounds like them.
 
 - **Project name** — from scope.
 - **Tagline** — the one-line "what this is" from scope, sharpened.

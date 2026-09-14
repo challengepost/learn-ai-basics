@@ -6,7 +6,7 @@ status: draft
      and change it to `approved` only when the learner explicitly signs off. Never skip the draft save —
      an unsaved draft dies with the conversation. -->
 
-<!-- Progress state for `3-build`. `3-build` reads this file to find the next
+<!-- Progress state for `5-build`. `5-build` reads this file to find the next
      unchecked slice, and rewrites it as it goes — ticking boxes and appending to
      Revisions. Every slice MUST carry the same fields in the same order so parsing
      stays reliable. `Learner check:` gives the learner a plain-language way to
@@ -48,7 +48,7 @@ status: draft
 ## Revisions
 
 <!-- Leave this section empty when you write the checklist — no placeholder bullet.
-     `3-build` appends a bullet here when implementation contradicts an assumption
+     `5-build` appends a bullet here when implementation contradicts an assumption
      in the plan, in the form:
 
        - [What changed] — [what the build discovered that made the original plan wrong].

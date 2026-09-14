@@ -10,7 +10,7 @@ status: draft
      section it needs, and let the nesting depth follow the product's real complexity —
      a single-file tool needs two levels, a multi-surface app might need four. Empty
      headings added for symmetry make the spec worse. The one rule: anything
-     `3-build` will point at needs its own heading.
+     `5-build` will point at needs its own heading.
 
      Write the plain-language sections so the learner can read them back to someone
      else. That is the test this document has to pass. -->
@@ -72,7 +72,7 @@ Full ASCII tree, every file and folder annotated with its purpose.
 project/
 ├── src/
 │   └── ...
-├── docs/           # planning documents
+├── devpost/        # Devpost learning workspace
 └── ...
 ```
 

@@ -1,6 +1,6 @@
 # PRD Guide — Agent Reference
 
-This document is for the agent only. It informs how you run the `2-plan` conversation and write the PRD. Do not surface PM jargon, framework names, or theory to the learner. Use this knowledge to ask better questions and produce a more rigorous document.
+This document is for the agent only. It informs how you run the `3-prd` conversation and write the PRD. Do not surface PM jargon, framework names, or theory to the learner. Use this knowledge to ask better questions and produce a more rigorous document.
 
 ## What Makes a Good PRD Here
 
@@ -60,7 +60,7 @@ Catch them, name them to the learner, and put them in the deferred section with 
 
 Use epics — named groups of related functionality — only when the product genuinely has several distinct areas. A recipe app plausibly has *Finding recipes*, *Managing ingredients*, and *Cooking flow*. A single-purpose batch file renamer has one area, and forcing three epic headings onto it obscures a simple product rather than clarifying it; keep that structure flat and describe the behavior directly.
 
-Either way: **headings must be stable and descriptive**, because `2-plan` and `3-build` reference them by name — "this module implements `prd.md > Finding Recipes`". Traceability is the requirement; epic ceremony is not.
+Either way: **headings must be stable and descriptive**, because `3-prd` and `5-build` reference them by name — "this module implements `prd.md > Finding Recipes`". Traceability is the requirement; epic ceremony is not.
 
 ## User Stories
 
@@ -85,7 +85,7 @@ Never make the learner write stories. You write them from what they said; they c
 
 ## Acceptance Criteria
 
-Also a precision tool. Write criteria for the things whose "done" is genuinely ambiguous, or that `3-build` will need to verify. Skip them where the behavior is self-evidently either working or not. Criteria must be verifiable through observable behavior or output—a screen, terminal result, generated file, or other product-appropriate evidence.
+Also a precision tool. Write criteria for the things whose "done" is genuinely ambiguous, or that `5-build` will need to verify. Skip them where the behavior is self-evidently either working or not. Criteria must be verifiable through observable behavior or output—a screen, terminal result, generated file, or other product-appropriate evidence.
 
 Good:
 - [ ] When I search for "chicken", recipes with chicken appear
@@ -130,4 +130,4 @@ Strong non-goals prevent creep during the build. Make them specific and named �
 
 ## Open Questions
 
-Some things won't resolve in this conversation, and that's fine. Name them so they don't become surprise roadblocks. Flag whether each must be answered before `2-plan` or can wait until the build.
+Some things won't resolve in this conversation, and that's fine. Name them so they don't become surprise roadblocks. Flag whether each must be answered before `3-prd` or can wait until the build.

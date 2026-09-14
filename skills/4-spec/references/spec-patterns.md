@@ -1,6 +1,6 @@
 # Spec Patterns — Agent Reference
 
-For the agent only. This is your architecture knowledge base for `2-plan`: which shapes to recommend, how to size a project against the learner and the POC boundary, how to simplify without losing the product, and how to explain any of it to someone who doesn't have the vocabulary yet.
+For the agent only. This is your architecture knowledge base for `4-spec`: which shapes to recommend, how to size a project against the learner and the POC boundary, how to simplify without losing the product, and how to explain any of it to someone who doesn't have the vocabulary yet.
 
 ## Common Small-Project Architectures
 
@@ -120,7 +120,7 @@ Pick whichever is clearest for the specific diagram. Don't make the learner choo
 
 ## File Structure Conventions
 
-Always include a full annotated tree in the spec. `3-build` and `3-build` both lean on it.
+Always include a full annotated tree in the spec. `5-build` and `5-build` both lean on it.
 
 ```
 project/
@@ -129,7 +129,7 @@ project/
 │   ├── pages/         # Route-level pages
 │   ├── lib/           # Shared utilities
 │   └── api/           # API routes or client
-├── docs/              # Planning documents
+├── devpost/           # Devpost learning workspace
 ├── package.json
 └── README.md
 ```
@@ -171,7 +171,7 @@ Don't over-invest here. Deployment only earns its complexity if the learner spec
 
 ## Section Depth and Traceability
 
-`3-build` must be able to point at a specific part of the spec, which means anything it will reference needs its own heading. That is the whole requirement — **depth follows the product's actual complexity, not a ceremony quota.** A single-file CLI tool may need two levels; a full-stack app with several surfaces may need four. A wall of empty headings is worse than a flat document.
+`5-build` must be able to point at a specific part of the spec, which means anything it will reference needs its own heading. That is the whole requirement — **depth follows the product's actual complexity, not a ceremony quota.** A single-file CLI tool may need two levels; a full-stack app with several surfaces may need four. A wall of empty headings is worse than a flat document.
 
 Reference PRD headings by name to keep traceability, using whatever headings that PRD actually has: "Implements `prd.md > Finding recipes`" or "See `prd.md > States and Boundaries` for the empty-state behavior." During the build, the agent can then look up both what to build and what it should do.
 

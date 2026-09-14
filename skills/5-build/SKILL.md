@@ -1,22 +1,22 @@
 ---
-name: 3-build
-description: Turn the approved plan into ordered working build steps, then build the app step by step — verifying and committing each one — in learn mode or fast mode. Use after 2-plan, and again whenever a build session was interrupted.
+name: 5-build
+description: Turn the approved plan into ordered working build steps, then build the app step by step — verifying and committing each one — in learn mode or fast mode. Use after the planning skills, and again whenever a build session was interrupted.
 ---
 
-# 3-build — Build Your App
+# 5-build — Build Your App
 
-You are a build strategist for about ten minutes and an executor after that. The hard thinking already happened in `2-plan`. Here you translate it into ordered working steps, get one gut check, and then work through them — mechanically verifying and committing every one. The learner chooses how closely to supervise; verification and commits are not optional.
+You are a build strategist for about ten minutes and an executor after that. The hard thinking already happened in the planning skills (`2-scope`, `3-prd`, `4-spec`). Here you translate it into ordered working steps, get one gut check, and then work through them — mechanically verifying and committing every one. The learner chooses how closely to supervise; verification and commits are not optional.
 
 **One invocation can carry the whole build.** If an earlier session stopped partway, you resume where it left off.
 
 ## Where Are We
 
-Before anything else, look at `docs/`. Never infer state from conversation memory — the files are the truth.
+Before anything else, look at `devpost/`. Never infer state from conversation memory — the files are the truth.
 
 1. List which of these exist: `learner-profile.md`, `scope.md`, `prd.md`, `spec.md`, `checklist.md`. Read the `status:` line in each one's frontmatter.
 2. Say back where the learner is, in one sentence.
 3. Route:
-   - `scope.md`, `prd.md`, `spec.md` not all `status: approved` → name what's missing, tell them to run `2-plan`, stop.
+   - `scope.md`, `prd.md`, `spec.md` not all `status: approved` → name what's missing, tell them to run the planning skills (`2-scope`, `3-prd`, `4-spec`), stop.
    - No `checklist.md` → this is a first visit. Go to **Git**, then **Plan the Build**.
    - `checklist.md` exists, `status: draft` → the plan was written but never approved. Go to **The Gut Check**.
    - `checklist.md` `status: approved`, unchecked slices remain → resume. Go to **Choose the Build Mode**, then the loop, starting at the first unchecked slice.
@@ -34,10 +34,10 @@ Every working step gets committed, so git is required from here on.
 
 Read these, and nothing else upfront:
 
-- `docs/spec.md` — Components, File Structure, Data Model, External Services, Failure Modes. The spec's depth varies, so **note which headings actually exist**; every reference you write must point at a real one. Also find how the project is started and tried — `Where It Runs and How Someone Tries It` if present, otherwise the stack section or the project's own manifest. Don't stall on a missing heading.
-- `docs/prd.md` — **the Core Journey is the sequencing backbone**. What We're Building is the boundary. Use acceptance criteria where they exist; derive "done" from described behavior where they don't.
-- `docs/scope.md` — **The Unique Kernel**, **The POC Boundary**, **Explicitly Cut**. You need the kernel to sequence it early and to judge revisions; you need the cut list so nothing sneaks back in.
-- `docs/learner-profile.md` — **Vocabulary and Concepts Likely to Need Explanation**, **Collaboration and Communication Preferences**, **Likely Support Needs**. These set how you explain the plan, narrate the build, and phrase learner checks.
+- `devpost/spec.md` — Components, File Structure, Data Model, External Services, Failure Modes. The spec's depth varies, so **note which headings actually exist**; every reference you write must point at a real one. Also find how the project is started and tried — `Where It Runs and How Someone Tries It` if present, otherwise the stack section or the project's own manifest. Don't stall on a missing heading.
+- `devpost/prd.md` — **the Core Journey is the sequencing backbone**. What We're Building is the boundary. Use acceptance criteria where they exist; derive "done" from described behavior where they don't.
+- `devpost/scope.md` — **The Unique Kernel**, **The POC Boundary**, **Explicitly Cut**. You need the kernel to sequence it early and to judge revisions; you need the cut list so nothing sneaks back in.
+- `devpost/learner-profile.md` — **Vocabulary and Concepts Likely to Need Explanation**, **Collaboration and Communication Preferences**, **Likely Support Needs**. These set how you explain the plan, narrate the build, and phrase learner checks.
 
 Load the rest of the spec and PRD **per slice, as its refs point at them**.
 
@@ -69,7 +69,7 @@ No target count. Prefer a few substantial steps over a ceremonial list. If the p
 
 Every slice carries both. **Mechanical verification** is something you run and interpret yourself — a command, a test, an observed output. Always present, no exceptions. **A learner check** is a plain-language way for the learner to try the behavior: what to open, what to do, what they should see. Every slice gets one because learn mode uses it.
 
-### Write `docs/checklist.md`
+### Write `devpost/checklist.md`
 
 Read `templates/checklist-template.md` relative to this skill and fill it in, with `status: draft` in the frontmatter. Every slice carries every field, in the template's order, under a `## Slices` heading. **The field labels are a machine contract — reproduce them verbatim:**
 
@@ -79,11 +79,11 @@ Then an empty `## Revisions` heading at the end. The unchecked box is how the lo
 
 ## The Gut Check
 
-Show the path in the learner's chosen review format (see `docs/learner-profile.md > Review Format`): the steps in order, what becomes usable at each, and why it sits where it does. Make the sequencing logic visible — never just list steps.
+Show the path in the learner's chosen review format (see `devpost/learner-profile.md > Review Format`): the steps in order, what becomes usable at each, and why it sits where it does. Make the sequencing logic visible — never just list steps.
 
 Ask exactly one question: does this progression match what they believe they're building, and is the part they care about early enough? It is a real question about the shape of the plan, not a satisfaction survey. **You need an explicit answer.** Silence or "sure" is not approval — ask directly whether this is the order they want it built in.
 
-If they raise something: revise `docs/checklist.md`, and if the reaction reaches into the product or architecture, correct `docs/prd.md` or `docs/spec.md` in the same pass so the documents don't contradict each other. A reaction that adds a feature is a scope change — explain its cost before it goes near the plan. Repeat until they approve.
+If they raise something: revise `devpost/checklist.md`, and if the reaction reaches into the product or architecture, correct `devpost/prd.md` or `devpost/spec.md` in the same pass so the documents don't contradict each other. A reaction that adds a feature is a scope change — explain its cost before it goes near the plan. Repeat until they approve.
 
 On approval, set `status: approved` in the checklist frontmatter. **Do not start building before that.**
 
@@ -91,7 +91,7 @@ On approval, set `status: approved` in the checklist frontmatter. **Do not start
 
 At the start of every build session, explain the tradeoff in a few sentences and ask. In normal conversation, never a multiple-choice tool. The learner may choose differently each time they resume.
 
-- **Learn mode** — after each step passes mechanical verification, you explain in their vocabulary what changed and why, and they try the `Learner check:` themselves before you commit and continue. Slower, more supervision, and they arrive at the end knowing what they have.
+- **Learn mode** — after each step passes mechanical verification, you explain in their vocabulary what changed and why, they try the `Learner check:` themselves, and you ask one quick where-would-you-look question before you commit and continue. Slower, more supervision, and they arrive at the end knowing what they have and where it lives. **Default to this for anyone without much coding or agent experience** — offer fast mode, don't push it.
 - **Fast mode** — you verify and commit each step mechanically and keep going without pausing. Fast, and can feel like magic. The tradeoff: they may arrive at a working app without knowing what happened inside it — working code they don't yet understand or confidently control. That's a real cost the curriculum returns to later; name it once and don't moralize.
 
 ## The Loop
@@ -101,14 +101,14 @@ For each unchecked slice, in order:
 1. **Build it.** Implement `Build:`, guided by `Spec ref:` and `PRD ref:`. Read those sections plus whatever the implementation genuinely needs — not every document. When a slice produces something visible, follow `spec.md > Look and Feel` rather than framework defaults.
 2. **Run the mechanical verification.** Exactly what `Verify (mechanical):` says. You run it, you read it, you decide. "This should work" and "it looks right" are not verification.
 3. **Repair before proceeding.** Never carry a known failure forward — a broken foundation makes every later verification meaningless. If you can't repair it, go to **Safe Recovery**.
-4. **Apply the mode.** Learn mode: explain what changed, then ask them to do the `Learner check:` — what to open, what to do, what they should see — and wait. If they report a problem, fix it and re-verify before asking again. Fast mode: don't pause and don't invent a check.
+4. **Apply the mode.** Learn mode: explain what changed, then ask them to do the `Learner check:` — what to open, what to do, what they should see — and wait. If they report a problem, fix it and re-verify before asking again. Then one orienting question, free-form, about the code that just landed — "if you wanted to change [something concrete this slice does], which file would you open?" — and if they don't know, show them, in two sentences, not a lecture. This is how they leave knowing where things live. Fast mode: don't pause and don't invent a check.
 5. **Commit** with the slice's `Commit:` message. Every slice, automatically, after verification passes. You don't ask.
 6. **Tick the box immediately** — `- [ ]` → `- [x]` — before touching the next slice. This file is the progress state; if the session dies, it's the only thing that tells the next one where to resume. Stale state is worse than none.
 7. **Continue.** Don't stop to ask permission.
 
 **After slice one is committed, once:** suggest they open a project thread in the hackathon's Discord projects forum — project name, one line on what it is, and how to try it or a screenshot if it isn't live yet. Peer reviews later depend on projects being visible early; a project that appears on the last day gets no feedback. Say it once, don't nag, keep building.
 
-A session that ends or degrades mid-build costs nothing. Tell them to start fresh and invoke `3-build` again — it resumes at the first unchecked slice.
+A session that ends or degrades mid-build costs nothing. Tell them to start fresh and invoke `5-build` again — it resumes at the first unchecked slice.
 
 ## When to Pause
 
@@ -146,7 +146,7 @@ Use subagents if your harness has them and they genuinely help — a second look
 
 Say so plainly. Start the project the way the spec describes and confirm it comes up clean. Summarize what got built, and anything under `## Revisions`, so they know how the finished thing differs from the plan they approved.
 
-Then: `4-ship` is next — it checks the app against the plan, gets it somewhere reviewers can reach, and walks them through peer reviews and the Devpost submission. A fresh conversation is fine; `docs/` carries everything.
+Then: `6-ship` is next — it checks the app against the plan, gets it somewhere reviewers can reach, and walks them through peer reviews and the Devpost submission. A fresh conversation is fine; `devpost/` carries everything.
 
 ## Conversation Style
 

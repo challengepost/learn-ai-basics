@@ -1,56 +1,55 @@
 ---
 doc: learner-profile
 ---
-<!-- This template captures the few things about the learner that later phases actually use.
-     Every downstream skill reads this document to calibrate depth, tone, and how much of a
-     decision to hand back to the learner. Keep it scannable and short.
-
-     Two rules for filling it in:
-     1. Record what the learner demonstrated, with a short quote or paraphrase as evidence.
-     2. Do not infer beyond the evidence, and do not assign fixed or confident labels.
-        "Not established" is an acceptable and useful value. -->
+<!-- Capture only context later skills can use. Keep it scannable and short, not a transcript.
+     Record what the learner shared or demonstrated, with brief evidence where useful.
+     Don't infer beyond the evidence or assign fixed labels. "Not established" is useful.
+     Optional sections need not be filled; don't turn this template into a questionnaire. -->
 
 # Learner Profile
 
+## Initial Idea
+Their idea in their own terms, or that they want help finding one. Include intended users or motivation only if shared. This is a starting point, not approved scope.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) to choose idea discovery vs. shaping without repeating onboarding questions.
+
 ## Demonstrated Technical and Agent Experience
-What they have actually built or attempted, and what they did versus what the AI did.
-Which tools, languages, or agents came up — and which they used fluently versus named vaguely.
-Evidence: quote or paraphrase the part of their story this is based on.
-> Used by `2-plan` (what they can realistically get built) and `2-plan` (never ask them to choose between options they can't evaluate).
+Their reported coding background and AI coding-agent experience, distinguished from what you directly observed. Include tools or workflows only if mentioned; don't require a build history.
+Evidence: a short quote or paraphrase.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) and `5-build` to calibrate technical depth, setup help, and agent-workflow explanations. Don't ask them to choose between options they can't evaluate.
 
 ## Desired Learning Outcome
-The capability they want by the end — usually distinct from the app itself.
-Evidence: their own words.
-> Used by `2-plan` to decide how deep to go and where to invest explanation, and by `2-plan` as an angle to open the learner up when answers get short.
+Anything new they volunteered wanting to try or learn. "Not established" is fine; getting something working is a valid goal. Don't invent a capability target.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) and `5-build` to find opportunities for explanation or practice without expanding scope automatically.
+
+## Interests, Inspirations, and Goals
+Useful context they chose to share: interests, examples they admire, how the idea fits their life, or who they hope will use it. Summarize only what helps shape the project; omit unnecessary personal details.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) to discover or shape an idea and make relevant recommendations.
 
 ## Vocabulary and Concepts Likely to Need Explanation
-Terms that will come up in planning or build that they did not use or seemed unsure about.
-Terms they clearly already own, so we don't over-explain them.
-> Used by `2-plan`, `2-plan`, `3-build`, and `3-build` to pitch explanations at the right level.
+Concepts their stated background or expressed uncertainty suggests need explaining, and terms they clearly understand. Not mentioning a term is not evidence they don't know it.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) and `5-build` to pitch explanations at the right level.
 
 ## Collaboration and Communication Preferences
-How they like an agent to communicate, how much initiative they welcome, and what makes collaboration feel useful rather than intrusive.
-Evidence: their own words.
-> Used by `2-plan` through `3-build` to calibrate tone, proactivity, challenge, and how much narration to provide.
+Only preferences they volunteered or explicitly confirmed. Don't infer preferences from their experience level or require an abstract preferences interview.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) through `5-build` to adapt communication. Concrete choices are asked at their actual decision points; `5-build` still asks learn vs. fast mode at build time.
 
 ## Areas Where the Learner Wants Ownership
-Decisions they said they want to make themselves.
-Evidence: their own words.
-> Used by `2-plan`, `2-plan`, and `2-plan`: recommend here, but let them decide.
+Decisions they explicitly said they want to make themselves, if any. Unknown preferences never waive approval requirements.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) and `5-build` to respect stated boundaries alongside the skills' approval rules.
 
 ## Likely Support Needs
-Where they asked to slow down, and where the story in their answers suggests friction.
-> Used by `2-plan`, `2-plan`, `2-plan`, and `3-build` to decide when to walk through something versus proceed.
+Help they requested or friction grounded in their reported background or observed uncertainty. Distinguish known needs from open questions.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) and `5-build` to decide when to walk through something versus proceed.
 
 ## Review Format
 
-<!-- Ask once in 1-start. `markdown` = the agent reviews planning documents with the learner in the
-     terminal. `html` = the agent also renders each planning document as a simple self-contained
-     HTML page the learner opens in a browser. Markdown files stay canonical either way. -->
+<!-- Ask at the first planning-document review in the planning skills, unless already volunteered.
+     `markdown` = review in the terminal.
+     `html` = also render a simple self-contained HTML page for browser review.
+     Markdown files stay canonical either way. Save the choice here for later reviews. -->
 
-markdown | html
+not established
 
 ## Notes and Open Questions
-Anything relevant that doesn't fit above, and anything still unknown that a later phase may need to ask about.
-> Read by `2-plan`, the next phase and the longest conversation — it picks up anything
-> left unresolved here while it already has the learner talking.
+Anything relevant that doesn't fit above, and unknowns a later phase may need to ask about when they matter. Optional unanswered questions are not tasks to complete.
+> Read by the planning skills (`2-scope`, `3-prd`, `4-spec`) to carry context forward without repeating the interview.

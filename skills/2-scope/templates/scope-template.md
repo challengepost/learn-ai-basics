@@ -32,8 +32,8 @@ Why they come back.
 ## Inspiration & Identity
 References, aesthetic, mood, energy, tone — what it should feel like to use.
 Include URLs for anything referenced; later phases use these as a research map.
-This is design direction, not decoration: `2-plan` carries it into `spec.md > Look and Feel`,
-and `3-build` follows that section whenever a slice produces something visible.
+This is design direction, not decoration: `4-spec` carries it into `spec.md > Look and Feel`,
+and `5-build` follows that section whenever a slice produces something visible.
 
 ## Why This Matters to the Learner
 The personal stake — in their own words where possible.

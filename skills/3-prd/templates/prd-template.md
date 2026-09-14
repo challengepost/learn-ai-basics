@@ -11,7 +11,7 @@ status: draft
      needs. Completeness is the standard, not length — a short PRD for a small product
      is correct. Keep it inside the approved POC boundary.
 
-     Keep heading names stable and descriptive: `2-plan` and `3-build` reference
+     Keep heading names stable and descriptive: `4-spec` and `5-build` reference
      them by name. -->
 
 # [Project Name] — Product Requirements
@@ -76,4 +76,4 @@ Specific things this project will NOT do, each with a brief reason.
 Pull from what scope cut, plus anything that will tempt during the build.
 
 ## Open Questions
-Unresolved items. Flag whether each must be answered before `2-plan` or can wait.
+Unresolved items. Flag whether each must be answered before `4-spec` or can wait.
