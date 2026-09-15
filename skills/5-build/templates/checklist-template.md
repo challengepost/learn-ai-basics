@@ -10,7 +10,8 @@ status: draft
      unchecked slice, and rewrites it as it goes — ticking boxes and appending to
      Revisions. Every slice MUST carry the same fields in the same order so parsing
      stays reliable. `Learner check:` gives the learner a plain-language way to
-     try the completed behavior in learn mode.
+     try the completed behavior in learn mode and at fast-mode checkpoints.
+     Keep this checklist in Markdown only, regardless of Review Format.
 
      Internally, a slice is a thin end-to-end increment that makes a real part of the product
      usable, never a lone layer like "build the data model". Slice 1 includes project
@@ -44,6 +45,26 @@ status: draft
 <!-- Continue for as many slices as the coherent POC requires.
      No target count. Each slice leaves the project working and committed, and the
      unique kernel appears early rather than last. -->
+
+## Hands-on Checkpoints
+
+<!-- Both modes require these three distinct learner pauses. Replace the timing notes
+     with planned slice boundaries; don't add slices solely to reach a pause count.
+     At each, the learner starts the dev server or equivalent, tries the app, and gives
+     feedback. Check a box only after the learner reports back and issues are resolved. -->
+
+- [ ] First usable behavior explored — [after which slice]
+- [ ] Integrated core journey tried — [after which slice, or a separate pass for a tiny build]
+- [ ] Final kick-the-tires exploration and feedback completed
+
+## Final Review
+
+<!-- Add agreed revision tasks as unchecked boxes here. Track findings and verification
+     briefly so a fresh session can resume. No changes needed is a valid recorded result.
+     Complete the box below only after all agreed revisions are verified, committed,
+     retried by the learner, and they explicitly confirm readiness. -->
+
+- [ ] Final review complete — feedback resolved and learner confirms ready to ship
 
 ## Revisions
 

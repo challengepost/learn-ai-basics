@@ -5,9 +5,13 @@ description: Turn the approved plan into ordered working build steps, then build
 
 # 5-build — Build Your App
 
-You are a build strategist for about ten minutes and an executor after that. The hard thinking already happened in the planning skills (`2-scope`, `3-prd`, `4-spec`). Here you translate it into ordered working steps, get one gut check, and then work through them — mechanically verifying and committing every one. The learner chooses how closely to supervise; verification and commits are not optional.
+You are a build strategist for about ten minutes and an executor after that. The hard thinking already happened in the planning skills (`2-scope`, `3-prd`, `4-spec`). Here you translate it into ordered working steps, get a thoughtful review, and then work through them—mechanically verifying and committing every one. Both modes require hands-on learner feedback and a final revision round; verification and commits are not optional.
 
 **One invocation can carry the whole build.** If an earlier session stopped partway, you resume where it left off.
+
+## Devpost Learn Rules
+
+Keep this Devpost Learn experience learner-led and proof-of-concept sized. Ask open-ended questions one at a time, without suggested answers or multiple-choice tools; explicit consent and sign-off can be yes/no. Calibrate to their coding experience. If they say "just do it for me," explain: "That's fine for playing around, but on projects you're serious about, active, intentional collaboration is more useful. To build those skills, you need to practice making the decisions." Then ask a smaller concrete question, don't take over. This concerns project decisions, not delegating implementation: you still write the code in both build modes.
 
 ## Where Are We
 
@@ -20,7 +24,7 @@ Before anything else, look at `devpost/`. Never infer state from conversation me
    - No `checklist.md` → this is a first visit. Go to **Git**, then **Plan the Build**.
    - `checklist.md` exists, `status: draft` → the plan was written but never approved. Go to **The Gut Check**.
    - `checklist.md` `status: approved`, unchecked slices remain → resume. Go to **Choose the Build Mode**, then the loop, starting at the first unchecked slice.
-   - Every slice checked → the build is done. Go to **When the Checklist Is Complete**.
+   - Every slice checked → go to **When the Checklist Is Complete**. The build is not finished until the saved **Final Review** is complete.
 
 ## Git
 
@@ -45,7 +49,7 @@ Load the rest of the spec and PRD **per slice, as its refs point at them**.
 
 ### The core lesson
 
-A large plan becomes small ordered working steps, each verified before the next begins, so there is always something usable and bad news arrives early. Say "working build steps" to the learner; they don't need slice vocabulary.
+A large plan becomes small ordered working steps, each verified before the next begins, so there is always something usable and bad news arrives early. Explain at the beginning: "We'll build in slices: small, end-to-end working steps you can actually try. Each adds a usable behavior, rather than building all the hidden plumbing first. We'll test and review as we go."
 
 ### What a slice is
 
@@ -67,7 +71,7 @@ No target count. Prefer a few substantial steps over a ceremonial list. If the p
 
 ### Verification, two kinds
 
-Every slice carries both. **Mechanical verification** is something you run and interpret yourself — a command, a test, an observed output. Always present, no exceptions. **A learner check** is a plain-language way for the learner to try the behavior: what to open, what to do, what they should see. Every slice gets one because learn mode uses it.
+Every slice carries both. **Mechanical verification** is something you run and interpret yourself — a command, a test, an observed output. Always present, no exceptions. **A learner check** is a plain-language way for the learner to try the behavior: what to open, what to do, what they should see. Every slice gets one; learn mode uses each, and fast mode uses them at hands-on checkpoints.
 
 ### Write `devpost/checklist.md`
 
@@ -75,13 +79,13 @@ Read `templates/checklist-template.md` relative to this skill and fill it in, wi
 
 `- [ ] **N. Slice title**` · `Becomes usable:` · `Why now:` · `PRD ref:` · `Spec ref:` · `Build:` · `Verify (mechanical):` · `Learner check:` · `Commit:`
 
-Then an empty `## Revisions` heading at the end. The unchecked box is how the loop finds the next slice and records progress. Renaming a label — `Implementation:` for `Build:` — produces a file the loop can't read, and nothing will catch it.
+Also include `## Hands-on Checkpoints` and `## Final Review` from the template, followed by an empty `## Revisions` heading. Plan three learner pauses: first usable behavior, an integrated core-journey check, and final kick-the-tires exploration. Record completion in the checkpoint boxes. For a one- or two-slice build, use distinct review passes rather than inventing slices to hit the pause count. The unchecked box is how the loop finds the next slice and records progress. Renaming a label — `Implementation:` for `Build:` — produces a file the loop can't read, and nothing will catch it.
 
 ## The Gut Check
 
-Show the path in the learner's chosen review format (see `devpost/learner-profile.md > Review Format`): the steps in order, what becomes usable at each, and why it sits where it does. Make the sequencing logic visible — never just list steps.
+Show the plan in the terminal as Markdown only—never generate an HTML checklist, regardless of **Review Format**: the steps in order, what becomes usable at each, and why it sits where it does. Make the sequencing logic visible — never just list steps.
 
-Ask exactly one question: does this progression match what they believe they're building, and is the part they care about early enough? It is a real question about the shape of the plan, not a satisfaction survey. **You need an explicit answer.** Silence or "sure" is not approval — ask directly whether this is the order they want it built in.
+Ask: "What would you change about this progression so it proves the part you care about early?" Let them review carefully and explain their judgment; don't demand changes for their own sake. Resolve concerns, then obtain explicit approval of the order.
 
 If they raise something: revise `devpost/checklist.md`, and if the reaction reaches into the product or architecture, correct `devpost/prd.md` or `devpost/spec.md` in the same pass so the documents don't contradict each other. A reaction that adds a feature is a scope change — explain its cost before it goes near the plan. Repeat until they approve.
 
@@ -92,7 +96,7 @@ On approval, set `status: approved` in the checklist frontmatter. **Do not start
 At the start of every build session, explain the tradeoff in a few sentences and ask. In normal conversation, never a multiple-choice tool. The learner may choose differently each time they resume.
 
 - **Learn mode** — after each step passes mechanical verification, you explain in their vocabulary what changed and why, they try the `Learner check:` themselves, and you ask one quick where-would-you-look question before you commit and continue. Slower, more supervision, and they arrive at the end knowing what they have and where it lives. **Default to this for anyone without much coding or agent experience** — offer fast mode, don't push it.
-- **Fast mode** — you verify and commit each step mechanically and keep going without pausing. Fast, and can feel like magic. The tradeoff: they may arrive at a working app without knowing what happened inside it — working code they don't yet understand or confidently control. That's a real cost the curriculum returns to later; name it once and don't moralize.
+- **Fast mode** — you verify and commit each step, moving between three required hands-on pauses with less explanation. At each pause, the learner starts the dev server (or the project's equivalent), opens and tries the app, and gives feedback. Faster does not mean hands-off; they still need to look at what is being built. Explain the tradeoff: less code discussion, not less ownership.
 
 ## The Loop
 
@@ -101,7 +105,7 @@ For each unchecked slice, in order:
 1. **Build it.** Implement `Build:`, guided by `Spec ref:` and `PRD ref:`. Read those sections plus whatever the implementation genuinely needs — not every document. When a slice produces something visible, follow `spec.md > Look and Feel` rather than framework defaults.
 2. **Run the mechanical verification.** Exactly what `Verify (mechanical):` says. You run it, you read it, you decide. "This should work" and "it looks right" are not verification.
 3. **Repair before proceeding.** Never carry a known failure forward — a broken foundation makes every later verification meaningless. If you can't repair it, go to **Safe Recovery**.
-4. **Apply the mode.** Learn mode: explain what changed, then ask them to do the `Learner check:` — what to open, what to do, what they should see — and wait. If they report a problem, fix it and re-verify before asking again. Then one orienting question, free-form, about the code that just landed — "if you wanted to change [something concrete this slice does], which file would you open?" — and if they don't know, show them, in two sentences, not a lecture. This is how they leave knowing where things live. Fast mode: don't pause and don't invent a check.
+4. **Apply the mode.** Learn mode: explain what changed, then ask them to do the `Learner check:` — what to open, what to do, what they should see — and wait. If they report a problem, fix it and re-verify before asking again. Then one orienting question, free-form, about the code that just landed — "if you wanted to change [something concrete this slice does], which file would you open?" — and if they don't know, show them, in two sentences, not a lecture. This is how they leave knowing where things live. Fast mode: at a planned hands-on checkpoint, guide them to start the dev server or equivalent and perform the relevant learner check. Ask "What did you notice, and what would you change?" Wait for their report; clarify feedback before revising, fix failures, and re-verify. Otherwise continue without a pause. In either mode, record planned checkpoints when their learner checks and feedback are complete.
 5. **Commit** with the slice's `Commit:` message. Every slice, automatically, after verification passes. You don't ask.
 6. **Tick the box immediately** — `- [ ]` → `- [x]` — before touching the next slice. This file is the progress state; if the session dies, it's the only thing that tells the next one where to resume. Stale state is worse than none.
 7. **Continue.** Don't stop to ask permission.
@@ -112,7 +116,7 @@ A session that ends or degrades mid-build costs nothing. Tell them to start fres
 
 ## When to Pause
 
-Learn mode: after every verified step, plus the two below. Fast mode: only the two below. Between pauses, work — brief narration, not running commentary.
+Learn mode: after every verified step. Fast mode: at all three planned hands-on checkpoints, including the final review. Both modes also pause for the two cases below. Between pauses, work—brief narration, not running commentary.
 
 - **A plan revision that changes what the learner is getting.**
 - **A failure you cannot safely repair.**
@@ -126,7 +130,7 @@ It will: a library doesn't behave as the spec assumed, a data shape doesn't fit,
 3. **Record the reason** as a bullet under `## Revisions`: what changed, and what the build discovered.
 4. **Continue from the revised plan.**
 
-If the revision changes what they're getting — a different behavior, a cut feature — tell them and get agreement first. A purely internal correction — a swapped library, a moved file — needs no conversation; make the call, record it, go. **Anything that touches `scope.md > The Unique Kernel` is the learner's decision, always.**
+If the revision changes what they're getting — a different behavior, a cut feature — tell them and get agreement first. A purely internal correction that preserves the learner's choices—a moved file or corrected function—needs no conversation; make the call, record it, go. Changing their chosen stack or consequential architecture requires discussion and agreement, not an automatic swap. **Anything that touches `scope.md > The Unique Kernel` is the learner's decision, always.**
 
 ## Safe Recovery
 
@@ -144,9 +148,15 @@ Use subagents if your harness has them and they genuinely help — a second look
 
 ## When the Checklist Is Complete
 
-Say so plainly. Start the project the way the spec describes and confirm it comes up clean. Summarize what got built, and anything under `## Revisions`, so they know how the finished thing differs from the plan they approved.
+Checked slices mean implementation is ready for final review—not that the learner is done. On resume, read **Hands-on Checkpoints** and **Final Review** and complete any missing checks. For older checklists missing these sections, add them from the template and ask which checks actually happened; don't infer completion from checked slices. If both are already complete, hand off without repeating the interview.
 
-Then: `6-ship` is next — it checks the app against the plan, gets it somewhere reviewers can reach, and walks them through peer reviews and the Devpost submission. A fresh conversation is fine; `devpost/` carries everything.
+1. **Verify and orient.** Start the project as the spec describes, run relevant checks, and summarize deviations under **Revisions**. Point out one or two load-bearing files behind the core behavior, using their experience level to set the depth.
+2. **Kick the tires.** Have the learner start the dev server or equivalent and explore the running app freely: look at it, try the core journey, test awkward inputs, and note anything broken, confusing, or worth changing. Wait for their observations. This is the third hands-on checkpoint, not an agent-only test.
+3. **Interview before revising.** Ask open-ended follow-ups one at a time: "What happened, and what did you expect instead?", "How would you want that to look or behave?", "Which change matters most, and why?" Don't jump from a vague complaint to your own redesign.
+4. **Agree and revise.** Record requested fixes and small refinements as unchecked items under **Final Review**, implement the agreed changes, verify mechanically, commit, and have the learner retry affected behavior before checking each item. If a request substantially changes the project, pause to discuss which planning decisions need revisiting; update affected documents with agreement. No automatic restart of all planning skills.
+5. **Finish explicitly.** Only mark the final-review completion box after feedback is resolved, checks pass, and the learner explicitly confirms the PoC is ready. If nothing needs changing, record that outcome rather than inventing revisions.
+
+Say: "Congratulations—your proof of concept is built, tested, and reviewed. You've completed `5-build`. Next is `6-ship`: share it, give peer feedback, and write your submission." A fresh conversation is fine; `devpost/` carries everything.
 
 ## Conversation Style
 

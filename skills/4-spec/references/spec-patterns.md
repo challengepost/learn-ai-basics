@@ -1,60 +1,14 @@
 # Spec Patterns — Agent Reference
 
-For the agent only. This is your architecture knowledge base for `4-spec`: which shapes to recommend, how to size a project against the learner and the POC boundary, how to simplify without losing the product, and how to explain any of it to someone who doesn't have the vocabulary yet.
+For the agent only. This is your architecture knowledge base for `4-spec`: how to support informed learner choices, how to size a project against the learner and the POC boundary, how to simplify without losing the product, and how to explain any of it to someone who doesn't have the vocabulary yet.
 
-## Common Small-Project Architectures
+## Help the Learner Choose, Without Choosing for Them
 
-Drawn from analyzing hackathon winners (TreeHacks, World's Largest Hackathon, DeveloperWeek). Recommend whichever fits the product and what the learner has actually demonstrated — never a menu of all of them.
+No prescribed stack catalog. Start from their PRD, coding experience, interests, and constraints. Ask for their technical direction before introducing options.
 
-### React/Vite + BaaS (the most common winner pattern)
-- **When:** Web app with dynamic data, accounts, or real-time features.
-- **Shape:** React + Vite + Tailwind → Supabase or Firebase (database, auth, storage) → Netlify or Vercel.
-- **Real example:** KeyHaven (World's Largest Hackathon winner) — React/TypeScript/Vite + Supabase + Stripe + Netlify.
-- **Why it works:** The BaaS is the entire backend, so the learner writes none and can focus on the product instead of plumbing.
-- **Tradeoffs:** Needs some existing React familiarity. BaaS configuration can become a larger source of friction than the code.
+When they need help—even if they ask for a recommendation—give a manageable spread of genuinely viable alternatives. Explain each at comparable depth: purpose, capabilities, limitations, setup, learning demands, cost, and sharing implications. No preferred choice, ranking, or default. Ask which fits their priorities and why; let them decide.
 
-### Python + Streamlit (fastest to something demoable)
-- **When:** Data-focused app, AI/ML project, internal tool, quick proof of concept.
-- **Shape:** Python script → Streamlit for an instant web UI → external APIs.
-- **Real example:** A serial winner (7 of 15 hackathons entered) uses Python + Streamlit + LangChain/LlamaIndex as a default stack.
-- **Why it works:** Turns any Python script into a web app with zero frontend knowledge. Free hosting on Streamlit Community Cloud.
-- **Tradeoffs:** Limited UI control, so a strong visual identity from `scope.md > Inspiration & Identity` may not survive. Great when the learner has written Python before, even just with an AI's help.
-
-### Next.js full-stack
-- **When:** Needs server rendering, API routes, and a polished frontend in one framework.
-- **Shape:** Next.js App Router → route handlers or server actions → Prisma + SQLite/Postgres.
-- **Why it works:** One framework, one deploy, no separate backend setup.
-- **Tradeoffs:** The most framework-specific option here, with real conceptual overhead (server vs. client boundaries). Only recommend to someone who has used it or explicitly wants to learn it.
-
-### Static site / client-only
-- **When:** No backend needed — data is local, or comes straight from an external API.
-- **Shape:** HTML/CSS/JS, or React with no server → `localStorage` or an external API.
-- **Good for:** Tools, visualizations, single-user apps, browser extensions.
-- **Tradeoffs:** Simplest possible deploy (GitHub Pages, Vercel drop-in). Nothing is shared between people or devices, which is fine far more often than learners expect.
-
-### CLI tool
-- **When:** No interface needed beyond a terminal.
-- **Shape:** Python/Node/Go script with argument parsing.
-- **Good for:** Automation, file processing, developer tools.
-- **Tradeoffs:** Fast to build, no deployment, trivial to demo by recording a terminal. Weak fit if the product's appeal is visual.
-
-### Bot / integration
-- **When:** The product lives inside a tool people already use (Slack, Discord, a browser extension).
-- **Shape:** Small server or handler → the host platform's UI.
-- **Good for:** Extending existing workflows.
-- **Tradeoffs:** The interface is someone else's problem, which is a gift. But platform setup — app registration, tokens, permissions, tunnels for local testing — adds several failure points before any product exists.
-
-### Which patterns suit which learners
-- **Little or no demonstrated experience:** static/client-only, a CLI tool, or Python + Streamlit. All three have one runtime, one file to start in, and no configuration ceremony.
-- **Some demonstrated experience with the relevant language:** React/Vite + BaaS is the sweet spot — real capability, minimal backend.
-- **Substantial demonstrated experience:** any of these, and ask their preference directly; they can evaluate the tradeoffs and should get to.
-- **Regardless of experience:** an unfamiliar framework adds setup and debugging that do not strengthen the demonstration. Novelty is a cost the learner pays, not a feature.
-
-### What winners have in common
-- **Strong concept beats technical complexity.** Winners solve real problems simply, not complex problems elaborately.
-- **BaaS over custom backends.** Supabase, Firebase, and Streamlit Cloud dominate because they delete backend boilerplate entirely.
-- **AI/LLM integration is near-universal** in recent winners — which also means an LLM call on the critical path is a very common failure mode. Plan the fallback.
-- **Plan before building.** Serial winners map data, hosting, and interactions before writing code. This whole skill is that habit.
+Teach the vocabulary needed for a choice rather than demanding an uninformed guess. Keep every alternative proportional to a proof of concept. A new tool can be the learner's legitimate learning goal; accommodate it by reducing other complexity rather than expanding the product.
 
 ## The Complexity Budget
 
@@ -74,7 +28,7 @@ When the architecture overwhelms the POC, simplify its expression rather than ha
 
 ## The Simplification Playbook
 
-Preserve the central idea; swap the technical expression. Record every swap in the spec with its reason.
+Preserve the central idea. Use these substitutions to explain possible simplifications, not to decide for the learner. Agree on consequential changes, then record each in the spec with its reason. Label simulations and sample data clearly; never fake the kernel.
 
 | Over budget | Simpler substitution that keeps the idea |
 |---|---|
@@ -97,11 +51,11 @@ If a swap would kill `scope.md > The Unique Kernel`, it's the wrong swap. Find a
 - **Analogies that hold up:** a database is a spreadsheet the program reads and writes; an API is a form you submit to someone else's building and get a reply from; a server is a computer that's always on, waiting to be asked; `localStorage` is a sticky note the browser keeps for one site; a framework is a pile of decisions already made for you.
 - **Name a thing, then use the name.** Introduce the term once with its plain meaning, then use it. Withholding vocabulary entirely leaves them unable to talk about their own app.
 - **The failure mode is pseudo-explaining** — a fluent paragraph of jargon that sounds like an explanation and transfers nothing. Worse than silence, because it looks complete. If they couldn't say it back, you haven't explained it.
-- **Check by asking them to say it back**, casually and once: "if a friend asked how this works, what would you tell them?" Their answer shows you exactly which piece didn't land.
+- **Teach during the decisions, not with an ending quiz.** Ask what they want to happen, explain unfamiliar mechanisms and alternatives, and invite questions. Use review to explore concerns and alignment, not to test recall.
 
 ## Diagramming
 
-A conversation tool, not a deliverable. **ASCII** works everywhere:
+Use diagrams during the conversation and in visual planning companions. Tie every diagram to this project's actual behavior. **ASCII** works everywhere:
 
 ```
 ┌──────────┐     ┌──────────┐     ┌──────────┐
@@ -120,7 +74,7 @@ Pick whichever is clearest for the specific diagram. Don't make the learner choo
 
 ## File Structure Conventions
 
-Always include a full annotated tree in the spec. `5-build` and `5-build` both lean on it.
+Always include a full annotated tree in the spec. `5-build` leans on it. Derive the tree from the learner's chosen architecture; the example below is illustrative, not a prescribed stack.
 
 ```
 project/
@@ -163,11 +117,11 @@ Not exhaustive error handling. The two or three places this will actually break 
 ## How Another Person Tries It
 
 This is the durable version of "demo readiness," and it drives real architecture decisions.
-- **Local only:** simplest, and the right default. Runs on localhost; a recording carries it to anyone else.
-- **Deployed URL:** note the target (Vercel, Netlify, GitHub Pages, Railway, Fly.io) and put the deploy steps in the spec. Choose stacks that deploy in one step.
-- **Recording:** zero infrastructure, and it always works.
+- **Local only:** runs on the learner's machine; sharing requires an accessible recording.
+- **Deployed URL:** others can try it directly; record the learner's chosen hosting target and deployment steps, including setup and costs.
+- **Recording:** avoids app hosting but still requires recording, uploading, and checking access to the video.
 
-Don't over-invest here. Deployment only earns its complexity if the learner specifically wants a link to share. If they do, that is a real constraint and should shape the stack choice, not be bolted on at the end.
+Explain these tradeoffs neutrally and record the learner's current choice. They may change strategy in `6-ship`; don't treat this as an irreversible commitment. Keep the architecture proportional to the proof.
 
 ## Section Depth and Traceability
 

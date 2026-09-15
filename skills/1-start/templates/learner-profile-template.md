@@ -15,7 +15,7 @@ Their idea in their own terms, or that they want help finding one. Include inten
 ## Demonstrated Technical and Agent Experience
 Their reported coding background and AI coding-agent experience, distinguished from what you directly observed. Include tools or workflows only if mentioned; don't require a build history.
 Evidence: a short quote or paraphrase.
-> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) and `5-build` to calibrate technical depth, setup help, and agent-workflow explanations. Don't ask them to choose between options they can't evaluate.
+> Used by the planning skills (`2-scope`, `3-prd`, `4-spec`) and `5-build` to calibrate technical depth, setup help, and agent-workflow explanations. Explain unfamiliar options and tradeoffs in accessible language before asking them to choose; don't choose for them.
 
 ## Desired Learning Outcome
 Anything new they volunteered wanting to try or learn. "Not established" is fine; getting something working is a valid goal. Don't invent a capability target.
@@ -45,8 +45,9 @@ Help they requested or friction grounded in their reported background or observe
 
 <!-- Ask at the first planning-document review in the planning skills, unless already volunteered.
      `markdown` = review in the terminal.
-     `html` = also render a simple self-contained HTML page for browser review.
-     Markdown files stay canonical either way. Save the choice here for later reviews. -->
+     `html` = also create a visual HTML planning companion with meaningful diagrams
+     and structured interactive reveals. Markdown stays canonical.
+     Applies to scope, PRD, and spec only—never create an HTML build checklist. -->
 
 not established
 

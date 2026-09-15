@@ -33,7 +33,8 @@ This is the section that makes the architecture explorable rather than abstract.
 ## Stack
 Language, framework, key libraries, with versions where they matter.
 Documentation link for each major dependency.
-One line of rationale per choice.
+One line of rationale per learner-selected choice, including their accepted tradeoff.
+Do not choose a stack to fill this template; interview and explain neutral options first.
 Anything unverified: say so plainly and flag it to check early in the build.
 
 ## Where It Runs and How Someone Tries It
@@ -89,13 +90,14 @@ Not exhaustive error handling.
 
 ## What Was Simplified and Why
 <!-- The substitutions made to keep the POC coherent. This is engineering judgment
-     on the page, not a list of shortcomings — expected to be non-empty. -->
+     on the page, not a list of shortcomings. Record agreed simplifications; don't invent a quota. -->
 
 - **[Simpler thing built]** instead of [fuller thing] — [why]. The fuller version
   would [what it would take].
 
 ## Decisions and Open Issues
 Decisions made here, each with what was chosen, why, and the tradeoff accepted —
-including the ones made on the learner's behalf, named as such.
+distinguishing learner choices from implementation details derived from them.
+Never attribute an agent assumption to the learner; resolve consequential gaps before approval.
 Then anything still unresolved: ambiguities from the self-review, and open questions
 carried over from `prd.md > Open Questions`.

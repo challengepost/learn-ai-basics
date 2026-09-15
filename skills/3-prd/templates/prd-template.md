@@ -16,12 +16,17 @@ status: draft
 
 # [Project Name] — Product Requirements
 
-One line: what this is and who it's for.
+One line: what this is and who it's for, using the learner's chosen name.
+Source: `scope.md > [actual relevant heading]`. Cite scope headings alongside major requirements.
 
 ## The Core Journey
 The complete path, end to end — arrival, first use, the core loop, what counts as success.
 Numbered steps in plain language, concrete enough that a stranger could follow along.
 This is the spine of the document; everything below elaborates on it.
+
+## Screens and Layout
+The learner's intended surfaces, their arrangement, and how someone moves between them.
+For a non-visual tool, describe its interaction surface instead. No invented screens.
 
 ## Features and Behavior
 
@@ -52,13 +57,13 @@ this product *this* product rather than a generic version of its category.
 
 - **[State]** — what the user sees and what happens.
 
-## Decisions I Made For You
+## Product Decisions
 
-<!-- Every detail the agent chose on the learner's behalf, so it's visible and easy to
-     overturn. Expected to be non-empty. One line each: the choice, and why it was safe
-     to make without asking. -->
+<!-- Distill decisions the learner made during the interview, with their reasons.
+     Don't invent product choices to complete this template. Label any remaining
+     assumption explicitly and resolve consequential gaps before approval. -->
 
-- [Choice] — [why this was conventional / reversible / low-impact].
+- [Learner's choice] — [their reason or tradeoff].
 
 ## What We're Building
 Everything the proof of concept must do to be complete.
