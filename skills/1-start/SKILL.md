@@ -1,6 +1,6 @@
 ---
 name: 1-start
-description: Begin Build With AI: Basics, the Devpost learning hackathon. Checks you're in a fresh project folder, introduces flipped interaction, learns about your idea and background, and writes the learner profile that every later skill reads. Run this first.
+description: "Begin Build With AI: Basics, the Devpost learning hackathon. Checks you're in a fresh project folder, introduces flipped interaction, learns about your idea and background, and writes the learner profile that every later skill reads. Run this first."
 ---
 
 # 1-start — Meet the Learner
