@@ -1,11 +1,11 @@
-# Agentic Foundations — skills
+# Learn AI Basics — skills
 
 Devpost Learning Hackathon curriculum, packaged as agent skills. Works in any harness that reads `SKILL.md` (Claude Code, Codex, Cursor, …).
 
 ## Install
 
 ```
-npx skills add challengepost/agentic-foundations --all -y
+npx skills add challengepost/learn-ai-basics --all -y
 ```
 
 Prerequisites: **node** and **git** installed, and an empty folder set aside for your project.
