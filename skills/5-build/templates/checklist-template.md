@@ -3,7 +3,8 @@ doc: checklist
 status: draft
 ---
 <!-- `status` is the progress state every skill reads. Write `draft` when you first save this file,
-     and change it to `approved` only when the learner explicitly signs off. Never skip the draft save —
+     and change it to `approved` when the learner clearly approves the displayed plan ("looks good" counts).
+     Do not request a second sign-off. Never skip the draft save —
      an unsaved draft dies with the conversation. -->
 
 <!-- Progress state for `5-build`. `5-build` reads this file to find the next
@@ -65,6 +66,19 @@ status: draft
      retried by the learner, and they explicitly confirm readiness. -->
 
 - [ ] Final review complete — feedback resolved and learner confirms ready to ship
+
+## Code Tour and App Map
+
+<!-- After final revisions, before submission. Both modes get one ~5-minute tour.
+     Record progress so resuming never repeats completed stops. No extra approval gate. -->
+
+- [ ] One action followed through 2–3 actual code locations with the learner
+- [ ] One optional incidental edit offered — record tried/kept/reverted/declined
+- [ ] `devpost/app-map.html` generated from finished code, checked, and shown
+
+Route and stops: [action, real paths and symbols; completed stops if interrupted]
+Edit outcome: [what happened, including declined; verification if changed]
+Tour mode: [live app and editor, or explicit static fallback and why]
 
 ## Revisions
 

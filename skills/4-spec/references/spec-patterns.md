@@ -117,11 +117,11 @@ Not exhaustive error handling. The two or three places this will actually break 
 ## How Another Person Tries It
 
 This is the durable version of "demo readiness," and it drives real architecture decisions.
-- **Local only:** runs on the learner's machine; sharing requires an accessible recording.
-- **Deployed URL:** others can try it directly; record the learner's chosen hosting target and deployment steps, including setup and costs.
-- **Recording:** avoids app hosting but still requires recording, uploading, and checking access to the video.
+Submission requires a short demo video and a public GitHub repository. Reviewers should not need to clone the repo to see the proof.
+- **Local app + recording:** sufficient; document startup and what to show, then upload the recording and check access.
+- **Optional deployed URL:** lets others try it directly in addition to the required video and repository; record any chosen hosting target, setup, costs, and deploy steps.
 
-Explain these tradeoffs neutrally and record the learner's current choice. They may change strategy in `6-ship`; don't treat this as an irreversible commitment. Keep the architecture proportional to the proof.
+Explain hosting tradeoffs only if relevant and record the learner's choice. They can change optional deployment plans in `6-ship`; keep the architecture proportional to the proof.
 
 ## Section Depth and Traceability
 
@@ -138,4 +138,4 @@ After drafting, review your own work for:
 - Internal inconsistency between the data model, the file tree, and the components.
 - Failure points with no fallback.
 
-If the harness supports an independent review pass, use one; otherwise do it directly. Either way, surface the two or three most important findings to the learner as genuine questions rather than a report.
+If the harness supports an independent review pass, use one; otherwise do it directly. Fix internal inconsistencies yourself. Ask the learner only about consequential decisions that remain unresolved, with no quota of findings or questions. The learner review is one "does this look good, or would you change anything?" exchange, not another interview or second sign-off.

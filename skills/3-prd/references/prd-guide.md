@@ -10,9 +10,9 @@ Never fill gaps with a reconstructed journey and ask for agreement. Instead: "In
 
 ## Thorough Thinking, Small Product
 
-Completeness means a stranger can understand the PoC and verify it, not that the document looks like an enterprise PRD. One surface and one loop can be enough. Ask substantive follow-ups until the important behavior is concrete; don't rush to drafting because a template could be filled.
+Completeness means a stranger can understand the PoC and verify it, not that the document looks like an enterprise PRD. One surface and one loop can be enough. Aim for roughly six meaningful exchanges, counting existing substantive answers and useful follow-ups, then offer more exploration or draft review. Resolve consequential gaps, but don't extend the interview for optional detail or to fill a question quota.
 
-Ask one short, open-ended question at a time. Avoid yes/no checks and suggested answers. Useful prompts:
+Ask one short, open-ended question at a time. Avoid suggested answers; yes/no is fine for the single plan-approval question. Useful prompts:
 
 - "What's on the first screen, and how is it arranged?"
 - "What belongs in each result?"
@@ -26,6 +26,10 @@ Ask one short, open-ended question at a time. Avoid yes/no checks and suggested 
 These are territory to explore, not a rigid questionnaire. Skip topics already covered substantively, not the interview itself. For newcomers, explain terms and ask concrete questions; for experienced learners, probe interactions and assumptions. Keep the same expectation of active thinking at either level.
 
 If they ask you to do the thinking for them, explain that this is fine for playing around, but serious AI projects benefit from intentional participation. Practicing that participation is the point here. Then ask a smaller concrete question rather than taking over.
+
+## Visual Direction
+
+For a visual project, use 1–2 adaptive questions within the interview to elicit font character, colors, style, or references as relevant. Explain briefly that unspecified visuals tend toward generic AI-app defaults. Carry existing preferences forward, don't require every category, and skip irrelevant visual questions for non-visual tools. Record the direction under **Look and Feel** for spec and build; no mockup exercise.
 
 ## Decisions and Assumptions
 
@@ -51,4 +55,4 @@ Turn the learner's evidence of success into observable acceptance criteria: scre
 
 Label remaining unknowns, including whether they block spec approval or can be investigated during the build. Don't approve unresolved product-defining decisions.
 
-Encourage careful reading of the full document. Ask 1–2 open-ended questions about alignment and remaining concerns, not recall or yes/no satisfaction. Never force the learner to manufacture criticism. Resolve feedback, request explicit sign-off, and preserve the canonical Markdown and any visual companion consistently.
+Encourage careful reading and ask once whether the plan looks good or needs changes. Clear approval, including "looks good," is enough to mark it approved and proceed. Resolve requested changes without adding regret questions, mandatory criticism, or a second sign-off. Preserve the canonical Markdown and any visual companion consistently.

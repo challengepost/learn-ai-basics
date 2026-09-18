@@ -25,11 +25,11 @@ Before anything else, look at `devpost/`. Never infer state from conversation me
    - `spec.md` with `status: draft` → read it back, summarize, ask "pick up here or redo this one?"
    - `spec.md` with `status: approved` → say so and point to `5-build`, stop — unless they want to reopen it.
 
-Save as soon as a first draft exists, with `status: draft`. Flip to `approved` only on an explicit yes.
+Save as soon as a first draft exists, with `status: draft`. Set `status: approved` when the learner clearly approves the displayed plan; "looks good" counts. Never require a second sign-off.
 
 ## Before You Start
 
-Read `devpost/prd.md` thoroughly — the heading names under **Features and Behavior** are what the spec must implement and cite. Read `devpost/scope.md` for **The Unique Kernel**, **The POC Boundary**, and **Inspiration & Identity** (that's design direction for **Look and Feel**). Read `devpost/learner-profile.md` for **Demonstrated Technical and Agent Experience**, **Desired Learning Outcome**, **Areas Where the Learner Wants Ownership**, and **Review Format**.
+Read `devpost/prd.md` thoroughly — the heading names under **Features and Behavior** are what the spec must implement and cite. Read the PRD's **Look and Feel** and scope's **Inspiration & Identity** for existing design direction. Read `devpost/scope.md` for **The Unique Kernel** and **The POC Boundary**. Read `devpost/learner-profile.md` for **Demonstrated Technical and Agent Experience**, **Desired Learning Outcome**, **Areas Where the Learner Wants Ownership**, and **Review Format**.
 
 ## Set the Frame
 
@@ -37,7 +37,7 @@ Say: "A technical specification is the blueprint for how we'll build what your P
 
 ## The Interview
 
-One question at a time, free-form. **Your questions should be short; their answers should be long.** Calibrate hard to the profile:
+One question at a time, free-form. **Your questions should be short; their answers should be long.** Aim for roughly six meaningful exchanges, counting substantive answers already supplied in earlier stages and useful follow-ups. This is a coverage guide, not a quota of fresh questions. Around that point, offer **Explore More or Review**; resolve only consequential gaps before approval rather than adding optional interrogation. Calibrate hard to the profile:
 
 - **Little or no coding background:** start with what they want the app to do and what they want to learn. Explain technical terms and connect choices to those needs. Never demand an uninformed framework guess.
 - **Some background:** build on the coding experience and learning goal already captured at start; ask about remaining preferences and explain tradeoffs.
@@ -51,11 +51,15 @@ Ask the learner to lay out what they want out of the build technically — a fam
 
 ### 2. Where it runs
 
-"How would you like someone else to try or see your project?" Remind them: **the submission needs a live URL or a short demo video.** Explain local recording and live deployment neutrally. Note their current choice and its implications; they can change sharing strategy in `6-ship`.
+Carry forward where the project runs, asking only if unclear. Explain: **submission requires a short demo video and a public GitHub repository; deployment is optional and does not replace the video.** A local app is fine to record. Ask about deployment only if they want others to try it directly; explain hosting implications without turning hosting into a requirement. Record run/recording instructions and any optional deployment choice for `6-ship`.
 
 ### 3. Elicit the architecture, section by section
 
 Use PRD behavior headings as interview anchors: "In `prd.md > [Heading]`, you want [behavior]. Where should that information live, and what should happen when someone returns?" Ask them to lay out preferences and constraints before filling in architecture. When they lack technical knowledge, explain a spread of viable options neutrally and let them choose. Probe connections, dependencies, and tradeoffs in their vocabulary. You can supply implementation detail that follows from their decisions, but never silently choose the stack or consequential architecture.
+
+### Design carry-forward
+
+Translate the PRD's **Look and Feel** into implementable styling consistent with their stack. Don't repeat design discovery. If a visual project still has no direction, ask one question about its intended visual style (fonts, colors, or references as relevant), briefly explaining that unspecified visuals tend toward generic AI-app defaults. Record the answer in the PRD and spec. For non-visual tools, cover only relevant output formatting. This counts within the interview, not as an extra round.
 
 ### 4. The core journey through the system
 
@@ -63,15 +67,15 @@ Trace the PRD's **Core Journey** through the pieces the learner chose — what h
 
 ### 5. Simplify
 
-Check the whole thing against **The POC Boundary**. Anything that doesn't prove the kernel or serve the demo is a candidate to simplify — hardcode it, fake it, or drop it. Ask what they would simplify and why. Explain implications, obtain their decision, and record it. Never fake the kernel; explicitly label sample data and simulated behavior.
+Check the whole thing against **The POC Boundary**. Anything that doesn't prove the kernel or serve the demo is a candidate to simplify — hardcode it, fake it, or drop it. Carry forward agreed simplifications; don't ask for another cut just to fill this beat. Only if new complexity warrants a change, explain the implications, obtain their decision, and record it. Never fake the kernel; explicitly label sample data and simulated behavior.
 
-## Deepening Rounds
+## Explore More or Review
 
-When the beats are covered, offer the choice:
+After roughly six meaningful exchanges, offer once (skip this check-in if they already asked to review the draft):
 
-> "What still needs exploring before I write the technical plan? We can dig into those gaps or move to review."
+> "We've got enough to sketch the plan. Want to explore anything further, or shall I write it up for review?"
 
-Good territory, calibrated to level: **state** ("for every piece of data — where does it live, how does it change, what happens when they come back?"); **external services** (exact calls, doc links, pricing or rate limits that could bite in a two-hour build); **failure modes** (the two or three places it'll actually break in a demo, and the simple fallback for each); **the demo** ("what will a reviewer see first?", then "how will you show the core idea?"); **assumptions** ("what evidence do we have that X handles Y?"). Four or five new questions per round. Offer again after each.
+If they choose more, follow the topic they name one question at a time; don't impose another fixed questionnaire. Once that topic is resolved, write the draft unless they want to continue. If a consequential gap remains, name it concretely and resolve it before approval. Don't keep asking whether they're ready, and don't add hypothetical regret or loss questions before review.
 
 ## Write `devpost/spec.md`
 
@@ -92,11 +96,9 @@ Save it immediately.
 
 Show it in their **Review Format** and encourage a careful read. If HTML, explain that visual relationships and interactive reveals can make the blueprint faster to digest. Create `devpost/spec.html` with meaningful architecture/data-flow diagrams (Mermaid or inline SVG) and a journey stepper or component reveals tied to PRD behaviors and files. Not just rendered Markdown; no framework/build step, essential content usable offline, fallback for CDN-based diagrams. Markdown stays canonical; regenerate after revisions.
 
-Ask 1–2 open-ended questions without suggested answers: "Where does this blueprint differ from how you want the app to work?" or "Which technical choice needs another look before building, and why?" No explain-it-back quiz. Learner thinking should happen throughout planning, not as a test at the end.
+Give two to four sentences of honest feedback: does every PRD behavior have a home, are the stack choices sensible for *them*, is it sized to a small proof of concept, is the file structure real.
 
-Two to four sentences of honest feedback: does every PRD behavior have a home, are the stack choices sensible for *them*, is it sized to an afternoon, is the file structure real.
-
-Follow up on reflexive approval with a concrete review prompt, without requiring criticism. Resolve feedback and get explicit sign-off before `status: approved`.
+Invite a careful read and ask once: "Does this look good, or would you change anything?" A clear "looks good" is approval: set `status: approved` and move on. If they request changes, resolve them, show the updated plan, and ask whether it looks right. Never challenge approval as superficial, demand criticism, add a regret/loss question, or request a second ceremonial sign-off. No ending comprehension quiz.
 
 ## Hand Off
 

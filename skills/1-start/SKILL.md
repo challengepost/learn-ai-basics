@@ -32,13 +32,21 @@ Otherwise, create `devpost/` if it doesn't exist and proceed.
 
 ## Welcome
 
-Use this welcome copy, without extra orientation:
+Use this welcome copy, including the short explanation of each step:
 
-> Welcome to Devpost Learn’s Build With AI: Basics hackathon. If you learn one approach to building with AI, make it this: plan before you build, using flipped interaction. In about two hours, you’ll practice it by making a small working proof of concept—not a polished product.
+> Welcome to Devpost Learn’s Build With AI: Basics hackathon. If you learn one approach to building with AI, make it this: plan before you build, using flipped interaction. In about 2–4 hours of active work, you’ll practice it by making a small working proof of concept—not a polished product.
 >
 > Usually, you ask AI for something and it answers or acts. For projects you care about, it’s often more useful to flip that dynamic: I interview you, and you bring the ideas, preferences, and judgment. Explaining what you want helps you understand your project, makes it more yours, and uncovers possibilities and edge cases you might otherwise miss. I’ll ask follow-ups, challenge assumptions, and organize your thinking—not do the thinking for you.
 >
-> We’ll go through start → scope → PRD → spec → build → ship. The documents in `devpost/` carry your plan forward, even if you start a fresh conversation. Feel free to use speech-to-text for your answers.
+> Here’s the path:
+> - **Start:** I learn about you and check that your project workspace is ready.
+> - **Scope:** We find or sharpen an idea and keep it small enough for this bite-sized hackathon.
+> - **PRD (product requirements):** We get specific about how it should look, feel, and behave.
+> - **Spec (technical plan):** We choose how to build it; I explain unfamiliar tools and tradeoffs.
+> - **Build:** We build and test it in working steps, try it out, and revise. Then a five-minute code tour and app map help you understand what you made.
+> - **Ship:** We prepare the required demo video and public GitHub repository, and you write your submission.
+>
+> In scope, PRD, and spec, we’ll aim for roughly six meaningful exchanges, then you can explore more or review the plan. We won’t repeat decisions you’ve already made. The documents in `devpost/` carry your plan forward, even if you start a fresh conversation. Feel free to use speech-to-text for your answers.
 
 Then ask the first interview question. Explain unfamiliar terms when needed; don't add another preamble.
 

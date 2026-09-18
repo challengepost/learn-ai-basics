@@ -3,7 +3,8 @@ doc: spec
 status: draft
 ---
 <!-- `status` is the progress state every skill reads. Write `draft` when you first save this file,
-     and change it to `approved` only when the learner explicitly signs off. Never skip the draft save —
+     and change it to `approved` when the learner clearly approves the displayed plan ("looks good" counts).
+     Do not request a second sign-off. Never skip the draft save —
      an unsaved draft dies with the conversation. -->
 
 <!-- Adaptive template. Drop any section that doesn't apply to this product, add any
@@ -40,12 +41,15 @@ Anything unverified: say so plainly and flag it to check early in the build.
 ## Where It Runs and How Someone Tries It
 Runtime (browser, local process, server, command line) and environment requirements
 (language version, API keys needed).
-How another person experiences it: local demo, deployed URL, or a recording. If
-deployed, the target platform and the deploy steps.
+Exact start command and what to open or run for the required demo recording.
+Submission requires both a short demo video and a public GitHub repository.
+Deployment is optional, never a substitute for either. If chosen, record the target
+platform and deploy steps.
 
 ## Look and Feel
-<!-- The design direction carried forward from `scope.md > Inspiration & Identity`, in
-     terms a build agent can act on. Direction, not a full design system — and keep it
+<!-- The design direction carried forward from `prd.md > Look and Feel` and
+     `scope.md > Inspiration & Identity`, in terms a build agent can act on.
+     Do not re-interview the learner about settled preferences. Direction, not a full design system — and keep it
      proportional: a CLI tool's entry is one line about output formatting and tone. -->
 Palette or color feeling. Typography character. Density and energy — spacious and calm,
 or dense and fast. The tone of the interface copy. Named references worth drawing from.

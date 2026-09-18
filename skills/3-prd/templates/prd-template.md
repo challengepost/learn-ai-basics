@@ -3,7 +3,8 @@ doc: prd
 status: draft
 ---
 <!-- `status` is the progress state every skill reads. Write `draft` when you first save this file,
-     and change it to `approved` only when the learner explicitly signs off. Never skip the draft save —
+     and change it to `approved` when the learner clearly approves the displayed plan ("looks good" counts).
+     Do not request a second sign-off. Never skip the draft save —
      an unsaved draft dies with the conversation. -->
 
 <!-- This is the complete product definition: the scope sketch, filled in. Adapt it
@@ -27,6 +28,13 @@ This is the spine of the document; everything below elaborates on it.
 ## Screens and Layout
 The learner's intended surfaces, their arrangement, and how someone moves between them.
 For a non-visual tool, describe its interaction surface instead. No invented screens.
+
+## Look and Feel
+<!-- For visual projects, capture direction from the 1–2 design questions or earlier answers:
+     typography character, colors, overall style, references, and anything to avoid.
+     Record only what was established, not invented preferences or a full design system.
+     For non-visual projects, substitute relevant output formatting/tone or omit.
+     `4-spec` translates this into implementable styling; it should not ask again. -->
 
 ## Features and Behavior
 

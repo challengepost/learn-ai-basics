@@ -3,7 +3,8 @@ doc: scope
 status: draft
 ---
 <!-- `status` is the progress state every skill reads. Write `draft` when you first save this file,
-     and change it to `approved` only when the learner explicitly signs off. Never skip the draft save —
+     and change it to `approved` when the learner clearly approves the displayed plan ("looks good" counts).
+     Do not request a second sign-off. Never skip the draft save —
      an unsaved draft dies with the conversation. -->
 
 <!-- Scope is a rough sketch of the heart of the idea — NOT the detailed product
@@ -32,8 +33,9 @@ Why they come back.
 ## Inspiration & Identity
 References, aesthetic, mood, energy, tone — what it should feel like to use.
 Include URLs for anything referenced; later phases use these as a research map.
-This is design direction, not decoration: `4-spec` carries it into `spec.md > Look and Feel`,
-and `5-build` follows that section whenever a slice produces something visible.
+Capture volunteered direction here; don't add a design questionnaire during scope.
+`3-prd` fills relevant gaps in 1–2 questions under `prd.md > Look and Feel`;
+`4-spec` carries that into `spec.md > Look and Feel`, which guides visible build work.
 
 ## Why This Matters to the Learner
 The personal stake — in their own words where possible.

@@ -24,7 +24,7 @@ Before anything else, look at `devpost/`. Never infer state from conversation me
    - No `checklist.md` → this is a first visit. Go to **Git**, then **Plan the Build**.
    - `checklist.md` exists, `status: draft` → the plan was written but never approved. Go to **The Gut Check**.
    - `checklist.md` `status: approved`, unchecked slices remain → resume. Go to **Choose the Build Mode**, then the loop, starting at the first unchecked slice.
-   - Every slice checked → go to **When the Checklist Is Complete**. The build is not finished until the saved **Final Review** is complete.
+   - Every slice checked → go to **When the Checklist Is Complete**. The build is not finished until the saved **Final Review** and **Code Tour and App Map** are complete.
 
 ## Git
 
@@ -79,13 +79,13 @@ Read `templates/checklist-template.md` relative to this skill and fill it in, wi
 
 `- [ ] **N. Slice title**` · `Becomes usable:` · `Why now:` · `PRD ref:` · `Spec ref:` · `Build:` · `Verify (mechanical):` · `Learner check:` · `Commit:`
 
-Also include `## Hands-on Checkpoints` and `## Final Review` from the template, followed by an empty `## Revisions` heading. Plan three learner pauses: first usable behavior, an integrated core-journey check, and final kick-the-tires exploration. Record completion in the checkpoint boxes. For a one- or two-slice build, use distinct review passes rather than inventing slices to hit the pause count. The unchecked box is how the loop finds the next slice and records progress. Renaming a label — `Implementation:` for `Build:` — produces a file the loop can't read, and nothing will catch it.
+Also include `## Hands-on Checkpoints`, `## Final Review`, and `## Code Tour and App Map` from the template, followed by an empty `## Revisions` heading. Plan three learner pauses: first usable behavior, an integrated core-journey check, and final kick-the-tires exploration. Record completion in the checkpoint boxes. For a one- or two-slice build, use distinct review passes rather than inventing slices to hit the pause count. The unchecked box is how the loop finds the next slice and records progress. Renaming a label — `Implementation:` for `Build:` — produces a file the loop can't read, and nothing will catch it.
 
 ## The Gut Check
 
 Show the plan in the terminal as Markdown only—never generate an HTML checklist, regardless of **Review Format**: the steps in order, what becomes usable at each, and why it sits where it does. Make the sequencing logic visible — never just list steps.
 
-Ask: "What would you change about this progression so it proves the part you care about early?" Let them review carefully and explain their judgment; don't demand changes for their own sake. Resolve concerns, then obtain explicit approval of the order.
+Ask once: "Does this build order look good, or would you change anything?" Resolve concerns if raised. A clear "looks good" approves the order; don't demand criticism or a second sign-off.
 
 If they raise something: revise `devpost/checklist.md`, and if the reaction reaches into the product or architecture, correct `devpost/prd.md` or `devpost/spec.md` in the same pass so the documents don't contradict each other. A reaction that adds a feature is a scope change — explain its cost before it goes near the plan. Repeat until they approve.
 
@@ -95,7 +95,7 @@ On approval, set `status: approved` in the checklist frontmatter. **Do not start
 
 At the start of every build session, explain the tradeoff in a few sentences and ask. In normal conversation, never a multiple-choice tool. The learner may choose differently each time they resume.
 
-- **Learn mode** — after each step passes mechanical verification, you explain in their vocabulary what changed and why, they try the `Learner check:` themselves, and you ask one quick where-would-you-look question before you commit and continue. Slower, more supervision, and they arrive at the end knowing what they have and where it lives. **Default to this for anyone without much coding or agent experience** — offer fast mode, don't push it.
+- **Learn mode** — after each step passes mechanical verification, you explain in their vocabulary what changed and why, they try the `Learner check:` themselves, and you briefly point out the relevant code before you commit and continue—no per-slice quiz. Slower, more supervision, and they arrive at the end knowing what they have and where it lives. **Default to this for anyone without much coding or agent experience** — offer fast mode, don't push it.
 - **Fast mode** — you verify and commit each step, moving between three required hands-on pauses with less explanation. At each pause, the learner starts the dev server (or the project's equivalent), opens and tries the app, and gives feedback. Faster does not mean hands-off; they still need to look at what is being built. Explain the tradeoff: less code discussion, not less ownership.
 
 ## The Loop
@@ -105,18 +105,18 @@ For each unchecked slice, in order:
 1. **Build it.** Implement `Build:`, guided by `Spec ref:` and `PRD ref:`. Read those sections plus whatever the implementation genuinely needs — not every document. When a slice produces something visible, follow `spec.md > Look and Feel` rather than framework defaults.
 2. **Run the mechanical verification.** Exactly what `Verify (mechanical):` says. You run it, you read it, you decide. "This should work" and "it looks right" are not verification.
 3. **Repair before proceeding.** Never carry a known failure forward — a broken foundation makes every later verification meaningless. If you can't repair it, go to **Safe Recovery**.
-4. **Apply the mode.** Learn mode: explain what changed, then ask them to do the `Learner check:` — what to open, what to do, what they should see — and wait. If they report a problem, fix it and re-verify before asking again. Then one orienting question, free-form, about the code that just landed — "if you wanted to change [something concrete this slice does], which file would you open?" — and if they don't know, show them, in two sentences, not a lecture. This is how they leave knowing where things live. Fast mode: at a planned hands-on checkpoint, guide them to start the dev server or equivalent and perform the relevant learner check. Ask "What did you notice, and what would you change?" Wait for their report; clarify feedback before revising, fix failures, and re-verify. Otherwise continue without a pause. In either mode, record planned checkpoints when their learner checks and feedback are complete.
+4. **Apply the mode.** Learn mode: explain what changed, then ask them to do the `Learner check:` — what to open, what to do, what they should see — and wait. If they report a problem, fix it and re-verify before asking again. Briefly name the code responsible, in two sentences rather than a quiz. Save the guided navigation and optional edit for the single final code tour. Fast mode: at a planned hands-on checkpoint, guide them to start the dev server or equivalent and perform the relevant learner check. Ask "What did you notice, and what would you change?" Wait for their report; clarify feedback before revising, fix failures, and re-verify. Otherwise continue without a pause. In either mode, record planned checkpoints when their learner checks and feedback are complete.
 5. **Commit** with the slice's `Commit:` message. Every slice, automatically, after verification passes. You don't ask.
 6. **Tick the box immediately** — `- [ ]` → `- [x]` — before touching the next slice. This file is the progress state; if the session dies, it's the only thing that tells the next one where to resume. Stale state is worse than none.
 7. **Continue.** Don't stop to ask permission.
 
-**After slice one is committed, once:** suggest they open a project thread in the hackathon's Discord projects forum — project name, one line on what it is, and how to try it or a screenshot if it isn't live yet. Peer reviews later depend on projects being visible early; a project that appears on the last day gets no feedback. Say it once, don't nag, keep building.
+**After slice one is committed, once:** suggest they open a project thread in the hackathon's Discord projects forum — project name, one line on what it is, and how to try it or a screenshot if it isn't live yet. This is optional, a way to get feedback while there is still time to use it—not a submission requirement. Their project post must be their own writing. Say it once, don't nag, keep building.
 
 A session that ends or degrades mid-build costs nothing. Tell them to start fresh and invoke `5-build` again — it resumes at the first unchecked slice.
 
 ## When to Pause
 
-Learn mode: after every verified step. Fast mode: at all three planned hands-on checkpoints, including the final review. Both modes also pause for the two cases below. Between pauses, work—brief narration, not running commentary.
+Learn mode: after every verified step. Fast mode: at all three planned hands-on checkpoints, including the final review. Both modes finish with the five-minute code tour after revisions, and also pause for the two cases below. Between pauses, work—brief narration, not running commentary.
 
 - **A plan revision that changes what the learner is getting.**
 - **A failure you cannot safely repair.**
@@ -148,15 +148,27 @@ Use subagents if your harness has them and they genuinely help — a second look
 
 ## When the Checklist Is Complete
 
-Checked slices mean implementation is ready for final review—not that the learner is done. On resume, read **Hands-on Checkpoints** and **Final Review** and complete any missing checks. For older checklists missing these sections, add them from the template and ask which checks actually happened; don't infer completion from checked slices. If both are already complete, hand off without repeating the interview.
+Checked slices mean implementation is ready for final review—not that the learner is done. On resume, read **Hands-on Checkpoints**, **Final Review**, and **Code Tour and App Map** and complete only unfinished work. For older checklists missing these sections, add them from the template and establish what actually happened; don't infer completion from checked slices. If review is already complete, go straight to the tour; if everything is complete, hand off without repeating it.
 
-1. **Verify and orient.** Start the project as the spec describes, run relevant checks, and summarize deviations under **Revisions**. Point out one or two load-bearing files behind the core behavior, using their experience level to set the depth.
+1. **Verify.** Start the project as the spec describes, run relevant checks, and summarize deviations under **Revisions**. Save the code walkthrough for the single tour after revisions.
 2. **Kick the tires.** Have the learner start the dev server or equivalent and explore the running app freely: look at it, try the core journey, test awkward inputs, and note anything broken, confusing, or worth changing. Wait for their observations. This is the third hands-on checkpoint, not an agent-only test.
 3. **Interview before revising.** Ask open-ended follow-ups one at a time: "What happened, and what did you expect instead?", "How would you want that to look or behave?", "Which change matters most, and why?" Don't jump from a vague complaint to your own redesign.
 4. **Agree and revise.** Record requested fixes and small refinements as unchecked items under **Final Review**, implement the agreed changes, verify mechanically, commit, and have the learner retry affected behavior before checking each item. If a request substantially changes the project, pause to discuss which planning decisions need revisiting; update affected documents with agreement. No automatic restart of all planning skills.
 5. **Finish explicitly.** Only mark the final-review completion box after feedback is resolved, checks pass, and the learner explicitly confirms the PoC is ready. If nothing needs changing, record that outcome rather than inventing revisions.
 
-Say: "Congratulations—your proof of concept is built, tested, and reviewed. You've completed `5-build`. Next is `6-ship`: share it, give peer feedback, and write your submission." A fresh conversation is fine; `devpost/` carries everything.
+Then complete **The Five-Minute Code Tour** before handing off.
+
+## The Five-Minute Code Tour
+
+Both modes do this once, after the final revisions and before submission work. Budget about five minutes total, not another lesson or approval gate. Read `references/code-tour.md` relative to this skill for the tour and artifact requirements.
+
+Explain why up front: "AI can write code faster than you can understand it. That gap—sometimes called cognitive debt—can make later changes and debugging harder. A little effort now can save effort later and make this feel like yours, not something the AI handed you. Let's spend five minutes following one action through your code."
+
+Have them open the project in their IDE/editor and run the app if possible. Follow one meaningful action through **2–3 actual code locations**, connecting what they do and see to the responsible code. Invite **one optional small, safe edit** and let them see the result. Then reveal `devpost/app-map.html` as their take-home guide, not a document to study first. No quiz, score, extra sign-off, or exhaustive file tour. Track the route, edit outcome (including declined), and map in **Code Tour and App Map** so a fresh session won't repeat completed work.
+
+## Hand Off
+
+Say: "Congratulations—your proof of concept is built, tested, and reviewed, and your app map is ready. You've completed `5-build`. Next is `6-ship`: prepare your demo video and public GitHub repository, then write your submission." A fresh conversation is fine; `devpost/` carries everything.
 
 ## Conversation Style
 
